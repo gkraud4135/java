@@ -9,7 +9,6 @@ public class Bddd {
 		Tv.width = 20;
 		t.channerUp();
 		System.out.println("현재채널"+t.channer);
-		t.gugudan(int dan);
 	}
 
 	
@@ -35,6 +34,18 @@ class Tv {
 		for(int i=2;i<10;i++){
 			System.out.printf("%d*%d=%d%n",dan,i,dan*i);
 		}return;//void메서드의 return값은 생략가능
+	}
+	int multi(int x, int y){
+		int result = x*y;
+		return result;
+		}
+	Tv(){ //디폴드 값으로 써라
+//		color = "black";
+//		power = true;
+//		channer = 5;
+		this("black",true,4);
+	}
+	public Tv(String string, boolean b, int i) {
 	}
 	
 }
