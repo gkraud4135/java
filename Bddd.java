@@ -9,18 +9,36 @@ public class Bddd {
 		Tv.width = 20;
 		t.channerUp();
 		System.out.println("현재채널"+t.channer);
+		
+		Time ti = new Time();
+		ti.sethour(21);  //객체에 메서드 실행
+		System.out.println(ti.gethour());
 	}
 
 	
 }
-
+class Time {
+		//시간은 범위가있음 그래서 대입되는것을 한번 거르기위해
+	private int hour;
+	private int minute;
+	private int second;
+	
+	public void sethour(int hour){// hour을 세팅 
+		if(valid(hour)){return;}  //
+		this.hour = hour;
+	}
+	private boolean valid(int hour) { //hour가 유효한지 판단 if안에서 꺼냄
+		return hour<0 || 23<hour;
+	}
+	public int gethour(){return hour;}; //hour을 객체에 보냄
+}
 class Tv {
 	
-	String color;
+	String color;       //인스턴스변수
 	boolean power;
 	int channer;
 	
-	static int width =10;
+	static int width =10;   //static변수 클래스변수 
 	static int height =20;
 	
 	void channerUp(){channer++;}
