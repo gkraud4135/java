@@ -13,6 +13,16 @@ public class Bddd {
 		Time ti = new Time();
 		ti.sethour(21);  //객체에 메서드 실행
 		System.out.println(ti.gethour());
+		
+		Tv t1 = new Tv("white",true,3);
+		Tv t2 = new Tv();
+		t1.ex1();
+		t2.ex1();
+		//t1.change(); 자손 메서드 사용불가
+		
+		SmartTv st = null;
+		st=(SmartTv)t1;   //오류 왜지
+		st.change();
 	}
 
 	
@@ -31,6 +41,11 @@ class Time {
 		return hour<0 || 23<hour;
 	}
 	public int gethour(){return hour;}; //hour을 객체에 보냄
+}
+class SmartTv extends Tv{
+	SmartTv(){};
+	void change(){System.out.println(color);}
+	
 }
 class Tv {
 	
@@ -57,13 +72,17 @@ class Tv {
 		int result = x*y;
 		return result;
 		}
-	Tv(){ //디폴드 값으로 써라
+	Tv(){ //초기화 받지 않을때 디폴드 값으로 써라
 //		color = "black";
 //		power = true;
 //		channer = 5;
 		this("black",true,4);
 	}
 	public Tv(String string, boolean b, int i) {
+		color=string;
+		power=b;
+		channer=i;
 	}
+	void ex1(){System.out.println("color="+color+" power="+power+" channer"+channer);}
 	
 }
